@@ -47,3 +47,12 @@ app.post('/api/lightsabers', async (req, res) => {
     res.status(400).json({ message: error.message });
   }
 });
+// Route om alle Lightsabers op te halen (GET)
+app.get('/api/lightsabers', async (req, res) => {
+  try {
+    const lightsabers = await Lightsaber.find();
+    res.status(200).json(lightsabers);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
