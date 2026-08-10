@@ -30,3 +30,20 @@ mongoose.connect(process.env.MONGO_URI)
 app.get('/', (req, res) => {
   res.json({ message: "Star Wars API is running" });
 });
+
+// Route om een nieuwe Lightsaber aan te maken (POST)
+app.post('/api/lightsabers', async (req, res) => {
+  try {
+    // We maken een nieuw lightsaberobject aan met de data die de frontend meestuurt
+    const newLightsaber = new Lightsaber(req.body);
+    
+    // We slaan die op in MongoDB Atlas
+    const savedLightsaber = await newLightsaber.save();
+    
+    // We sturen een goed antwoord terug naar de frontend met de opgeslagen data
+    res.status(201).json(savedLightsaber);
+  } catch (error) {
+    // Als er iets misgaat   , vangen we de fout op
+    res.status(400).json({ message: error.message });
+  }
+});
