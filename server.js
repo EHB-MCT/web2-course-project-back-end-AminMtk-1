@@ -56,3 +56,15 @@ app.get('/api/lightsabers', async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
+// Route om 1 specifieke Lightsaber op te halen via ID
+app.get('/api/lightsabers/:id', async (req, res) => {
+  try {
+    const lightsaber = await Lightsaber.findById(req.params.id);
+    if (!lightsaber) {
+      return res.status(404).json({ message: "Lightsaber not found" });
+    }
+    res.status(200).json(lightsaber);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
