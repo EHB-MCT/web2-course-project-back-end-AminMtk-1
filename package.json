@@ -1,6 +1,7 @@
 {
   "name": "web2-course-project-back-end-aminmtk-1",
   "version": "1.0.0",
+  "type": "module",
   "description": "A short description of your project. Aim for 2-3 lines. \\",
   "main": "index.js",
   "scripts": {
