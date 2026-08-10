@@ -68,3 +68,19 @@ app.get('/api/lightsabers/:id', async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
+// route om een Lightsaber te updaten (PUT)
+app.put('/api/lightsabers/:id', async (req, res) => {
+  try {
+    const updatedLightsaber = await Lightsaber.findByIdAndUpdate(
+      req.params.id, 
+      req.body, 
+      { new: true, runValidators: true } // runValidators is om te checken dat iets wel kan en klopt. new true is om het nieuwe te tonen en de update functie te hebben
+    );
+    if (!updatedLightsaber) {
+      return res.status(404).json({ message: "Lightsaber not found" });
+    }
+    res.status(200).json(updatedLightsaber);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
