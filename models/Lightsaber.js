@@ -7,7 +7,7 @@ const lightsaberSchema = new mongoose.Schema({
     trim: true
   },
   crystalColor: {
-    type: String,
+    type: String,   
     required: true,
     enum: ['blue', 'red', 'green', 'purple', 'yellow', 'white']
   },
@@ -27,6 +27,6 @@ const lightsaberSchema = new mongoose.Schema({
   }
 });
 
-const Lightsaber = mongoose.model('Lightsaber', lightsaberSchema);
+const Lightsaber = mongoose.model('Lightsaber', lightsaberSchema); // JS code kan data opvragen, toevoegen, wijzigen en verwijderen in MongoDB.
 
 export default Lightsaber;
