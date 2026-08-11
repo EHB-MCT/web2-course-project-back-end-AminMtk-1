@@ -84,3 +84,15 @@ app.put('/api/lightsabers/:id', async (req, res) => {
     res.status(400).json({ message: error.message });
   }
 });
+// route om een Lightsaber te verwijderen (DELETE)
+app.delete('/api/lightsabers/:id', async (req, res) => {
+  try {
+    const deletedLightsaber = await Lightsaber.findByIdAndDelete(req.params.id);
+    if (!deletedLightsaber) {
+      return res.status(404).json({ message: "Lightsaber not found" });
+    }
+    res.status(200).json({ message: "Lightsaber deleted successfully" });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
