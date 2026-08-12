@@ -1,5 +1,5 @@
-# Your project name ✨
-A short description of your project. Aim for 2-3 lines. \
+# Star wars ✨
+A small website about star wars. I inspired my site by a workshop there is at Disney World where you can make your own lightsaber. I want to implement it in my website next to all the informational stuff about the saga.
 
 Website url: [website.be](website.be) (optional)
 
@@ -19,3 +19,4 @@ IF you use a source as the base/start for a file, then first place the source in
 **ALWAYS** use concise BUT CLEAR commit messages!
 
 Have a look at the example repository: https://github.com/EHB-MCT/example-readme
+  
